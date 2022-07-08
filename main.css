@@ -1,0 +1,49 @@
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    /* flex-wrap: nowrap;
+    justify-content: center; */
+    background-color: #e6e9ed;
+    /* min-height: 100%; */
+}
+
+.todo-list {
+    height: 3000px;
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 5px 10px 20px 20px rgba(0, 0, 0, 0.5);
+}
+
+.time {
+    border-bottom: 5px solid #e6e9edd3;
+}
+
+.todo-lists {
+    text-align: left;
+    border-bottom: 2px solid #d7daddde;
+}
+
+button {
+    background-color: rgb(124, 194, 139);
+    border: 0;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    font-size: 25px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    -webkit-transform: scale(3.0);
+    -moz-transform: scale(3.0);
+    -ms-transform: scale(3.0);
+    -o-transform: scale(3.0);
+    transform: scale(3.0);
+}

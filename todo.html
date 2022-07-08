@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- <html lang="kr" dir="ltr"> -->
+
+
+<head>
+    <meta charset="UFT-8">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!-- todo 리스트 만들기 -->
+    <div class="todo-list">
+        <h1 id="title">Todo List</h1>
+
+        <div class="time">
+            <!-- 현재 시간 띄우기 -->
+            <h3 id="days"> <span id="day"></span> <span id="time"></span>
+                <br>
+                <span id="week">
+                </span>
+            </h3>
+        </div>
+
+        <!-- 알림창 만들기 -->
+        <div class="todo-lists">
+            <ul>
+            </ul>
+        </div>
+        <div class="btn hover4">
+            <br>
+            <button id="Add">할 일 추가하기</button>
+            <br>
+            <br>
+            <!-- 버튼 옆 X를 누르면 할 일 제거하기 -->
+            <button id="Delete">제거하기</button>
+        </div>
+    </div>
+
+
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    //글씨 검정색으로 바꾸기 
+    $("h1").css("color", "#black");
+    $("h3").css("color", "#black");
+
+    //title의 글씨크기를 바꿈
+    $("#title").css("font-size", "60px");
+
+    //날짜표시의 크기를 변경
+    $("#days").css("font-size", "30px");
+
+    //날짜표시의 색을 변경
+    $("#days").css("color", "#565656");
+
+    //ul의 글씨크기를 변경
+    $("ul").css("font-size", "33px");
+
+    //현재 시간 출력하기
+    setInterval(function () {
+        $('#time').text(new Date().toLocaleTimeString());
+    }, 1000);
+
+    //현재 요일 출력하기
+    setInterval(function () {
+        $('#day').text(new Date().toLocaleDateString());
+    }, 1000);
+
+    //오늘의 월화수목금 출력
+    setInterval(function () {
+        $('#week').text(new Date().toLocaleDateString('ko-KR', {
+            weekday: 'long'
+        }));
+    }, 1000);
+
+    //할 일 추가하기 버튼 누르면 창 뜨면서 할일을 입력받아 추가하기
+    $('#Add').click(function () {
+        var todo = prompt('할 일을 입력하세요');
+        $('ul').append('<li><input type="checkbox" id="check6"> <label for="check6">' + todo + '</label></li>');
+    });
+
+    //체크된 할 일 제거하기를 누르면 체크된 할 일만 제거하기
+    $('#Delete').click(function () {
+        if (!confirm("확인을 누르시면 체크된 항목만 제거합니다.")) {
+            alert("취소(아니오)를 누르셨습니다.");
+        } else {
+            alert("확인(예)을 누르셨습니다.");
+            $('input:checked').parent().remove();
+        }
+
+    });
+
+    //모든 체크박스가 체크되면 모든 일정을 왈료하셨습니다를 띄우기
+    $('input:checkbox').click(function () {
+        if ($('input:checkbox:checked').length == $('input:checkbox').length) {
+            $('input:checked').parent().remove();
+            alert('모든 일정을 완료하셨습니다!');
+        }
+    });
+
+    //글자가 todolist를 넘어가면 todo list창 늘리기
+    $('#todolist').click(function () {
+        $('.todo-list').css('width', '800px');
+    });
+
+
+</script>
+
+</html>
