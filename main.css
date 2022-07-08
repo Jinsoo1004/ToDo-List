@@ -11,7 +11,7 @@ body {
 }
 
 .todo-list {
-    height: 3000px;
+    height: 1333px;
     width: 700px;
     margin: 0 auto;
     margin-top: 50px;
@@ -56,4 +56,9 @@ button:hover {
 /* 버튼에 마우스를 올리면 버튼이 커집니다 */
 button:hover {
     transform: scale(1.1);
+}
+
+/* 글자가 todo-list를 넘어간 경우 크기를 늘림 */
+.todo-list {
+    font-size: 30px;
 }
