@@ -9,7 +9,7 @@
 
 <body>
     <!-- todo 리스트 만들기 -->
-    <div class="todo-list">
+    <div id="todolistidwhatever" class="todo-list">
         <h1 id="title">Todo List</h1>
 
         <div class="time">
@@ -67,7 +67,12 @@
         $('#week').text(new Date().toLocaleDateString('ko-KR', { // 요일출력
             weekday: 'long'
         }));
-    }, 1000);
+        // 할 일이 ul을 넘어가면 창 크기 키우기
+        var size = $('ul')[0].children.length;
+        if (size > 21) {
+            $('#todolistidwhatever').css("height", `${1333 + (size - 21) * 40}px`);
+        }
+    }, 500);
 
     //할 일 추가하기 버튼 누르면 창 뜨면서 할일을 입력받아 추가하기
     $('#Add').click(function () {
