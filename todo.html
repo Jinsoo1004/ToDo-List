@@ -62,17 +62,9 @@
 
     //현재 시간 출력하기
     setInterval(function () {
-        $('#time').text(new Date().toLocaleTimeString());
-    }, 1000);
-
-    //현재 요일 출력하기
-    setInterval(function () {
-        $('#day').text(new Date().toLocaleDateString());
-    }, 1000);
-
-    //오늘의 월화수목금 출력
-    setInterval(function () {
-        $('#week').text(new Date().toLocaleDateString('ko-KR', {
+        $('#time').text(new Date().toLocaleTimeString());  // 시간출력
+        $('#day').text(new Date().toLocaleDateString());  // 날짜출력
+        $('#week').text(new Date().toLocaleDateString('ko-KR', { // 요일출력
             weekday: 'long'
         }));
     }, 1000);
@@ -102,4 +94,5 @@
         }
     });
 </script>
+
 </html>
