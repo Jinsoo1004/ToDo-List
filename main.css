@@ -57,8 +57,3 @@ button:hover {
 button:hover {
     transform: scale(1.1);
 }
-
-/* 글자가 todo-list를 넘어간 경우 크기를 늘림 */
-.todo-list {
-    font-size: 30px;
-}
