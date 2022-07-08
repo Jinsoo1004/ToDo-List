@@ -53,3 +53,7 @@ button:hover {
     background-color: rgb(100, 100, 100);
 }
 
+/* 버튼에 마우스를 올리면 버튼이 커집니다 */
+button:hover {
+    transform: scale(1.1);
+}
