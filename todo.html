@@ -62,36 +62,50 @@
 
     //현재 시간 출력하기
     setInterval(function () {
-        $('#time').text(new Date().toLocaleTimeString());  // 시간출력
-        $('#day').text(new Date().toLocaleDateString());  // 날짜출력
-        $('#week').text(new Date().toLocaleDateString('ko-KR', { // 요일출력
+        var date = new Date();
+        $('#time').text(date.toLocaleTimeString());
+        $('#day').text(date.toLocaleDateString());
+        $('#week').text(date.toLocaleDateString('ko-KR', {
             weekday: 'long'
         }));
-        // 할 일이 ul을 넘어가면 창 크기 키우기
-        var size = $('ul')[0].children.length;
-        if (size > 21) {
-            $('#todolistidwhatever').css("height", `${1333 + (size - 21) * 40}px`);
-        }
-    }, 500);
+        // var size = $('ul')[0].children.length;
+        // if (size > 21) {
+        //     $('#todolistidwhatever').css("height", `${1333 + (size - 21) * 40}px`); // 창 크기늘리는건 실패..
+        // }
+    }, 1000);
 
-    //할 일 추가하기 버튼 누르면 창 뜨면서 할일을 입력받아 추가하기
+    // //할 일 추가하기 버튼 누르면 창 뜨면서 할일을 입력받아 추가하기
+    // $('#Add').click(function () {
+    //     var todo = prompt('할 일을 입력하세요');
+    //     $('ul').append('<li><input type="checkbox" id="check6"> <label for="check6">' + todo + '</label></li>');
+    // });
+
+    // 할일 추가하기 버튼누르면 창 뜨면서 할일을 입력받아 추가하기 
+    // 할일이 15개가 넘으면 더이상 할일입력을 받지못하게하기
     $('#Add').click(function () {
         var todo = prompt('할 일을 입력하세요');
-        $('ul').append('<li><input type="checkbox" id="check6"> <label for="check6">' + todo + '</label></li>');
+        var size = $('ul')[0].children.length;
+        if (size < 15) {
+            $('ul').append('<li><input type="checkbox" id="check6"> <label for="check6">' + todo + '</label></li>');
+        } else {
+            alert('할일이 15개가 넘어서 추가할 수 없습니다.');
+        }
     });
 
     //체크된 할 일 제거하기를 누르면 체크된 할 일만 제거하기
     $('#Delete').click(function () {
         if (!confirm("확인을 누르시면 체크된 항목만 제거합니다.")) {
-            alert("취소(아니오)를 누르셨습니다.");
+            alert("취소되었습니다.");
         } else {
-            alert("확인(예)을 누르셨습니다.");
             $('input:checked').parent().remove();
+            alert("성공적으로 제거하였습니다.");
         }
 
     });
 
-    //모든 체크박스가 체크되면 모든 일정을 왈료하셨습니다를 띄우기
+    //document.getElementById('todo-list').style.margin = 
+
+    //모든 체크박스가 체크되면 모든 일정을 완료하셨습니다를 띄우기
     $('input:checkbox').click(function () {
         if ($('input:checkbox:checked').length == $('input:checkbox').length) {
             $('input:checked').parent().remove();
