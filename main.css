@@ -47,3 +47,9 @@ input[type="checkbox"] {
     -o-transform: scale(3.0);
     transform: scale(3.0);
 }
+
+/* 버튼에 마우스를 올리면 색깔이 변합니다. */
+button:hover {
+    background-color: rgb(100, 100, 100);
+}
+
